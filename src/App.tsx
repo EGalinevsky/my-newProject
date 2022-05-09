@@ -17,8 +17,13 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React11111 i do it
+          привет 
+
 
         </a>
+        <div>
+          how are you
+        </div>
       </header>
     </div>
   );
