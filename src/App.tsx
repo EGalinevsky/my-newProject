@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import { Loader } from './components/Loader';
 import {
   BrowserRouter as Router,
 
@@ -12,10 +11,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header/>
         <div className='section-body'>
           <Routers />
-          <Loader />
         </div>
       </Router>
       test...
