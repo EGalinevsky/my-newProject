@@ -1,0 +1,13 @@
+@import '../../styles/variable.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+
+    .logoLink {
+        text-transform: uppercase;
+        color: var(--color-white);
+        text-decoration: none;
+    }
+}

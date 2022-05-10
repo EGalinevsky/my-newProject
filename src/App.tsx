@@ -1,19 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import { Loader } from './components/Loader';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" /> 
-        <div className='loader'>
-            <div className='ball'></div>
-            <div className='ball'></div>
-            <div className='ball'></div>
-            <p>loading...</p>
-        </div>
-      </header>
+      <Header />
+      <div className='section-body'>
+        <Loader />
+      </div>
     </div>
   );
 }

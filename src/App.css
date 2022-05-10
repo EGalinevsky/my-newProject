@@ -1,11 +1,24 @@
 .App {
-  text-align: center;
+  background: rgb(101, 119, 91);
+  background: linear-gradient(
+    17deg,
+    rgba(101, 119, 91, 1) 0%,
+    rgba(144, 154, 164, 1) 52%,
+    rgba(132, 186, 254, 1) 100%
+  );
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
+.section-body{
+  min-height: 80vh;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}  
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,16 +26,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61d9fa;
@@ -34,47 +37,5 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-.loader {
-  width: 120px;
-  height: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: 50px;
-}
-
-.loader p{
-  font-size: 22px;
-  text-transform: uppercase;
-  color: #61d9fa;
-  margin: auto;
-}
-
-.ball{
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #61d9fa;
-  animation: bounce .5s alternate infinite;
-}
-
-.ball:nth-child(2){
-  animation-delay: .16s;
-}
-
-.ball:nth-child(3){
-  animation-delay: .32s;
-}
-
-@keyframes bounce {
-  from {
-    transform: scaleX(1.25);
-  }
-  to{
-    transform: translateY(-50px) scaleX(1);
   }
 }
