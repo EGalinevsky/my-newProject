@@ -1,9 +1,13 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
 
 export const Major = () => {
     return (
         <>
-            <div>Major</div>
+            <Header />
+            <div className='section-body'>
+                <div>Major</div>
+            </div>
         </>
     )
 }

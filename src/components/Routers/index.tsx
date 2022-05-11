@@ -3,9 +3,9 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import Login from '../../Pages/Authorization/Login';
-import SingUp from '../../Pages/Authorization/SingUp';
-import { Major } from '../../Pages/Major';
+import Login from '../../pages/Authorization/Login';
+import SingUp from '../../pages/Authorization/SingUp';
+import { Major } from '../../pages/Major';
 
 export default function Routers() {
     return (
