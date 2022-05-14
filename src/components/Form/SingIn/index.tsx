@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import s from './form.module.scss'
-import Back from './../../assets/BackIcon.svg'
+import Back from './../../../assets/BackIcon.svg'
+import СloseEye from './../../../assets/СloseEye.svg'
+import OpenEye from './../../../assets/OpenEye.svg'
 
-const Form = () => {
+const LoginForm = () => {
+    const [show, setShow] = useState<boolean>(false)
     return (
         <div className={s.wrapper_form}>
             <div className={s.form_header}>
@@ -23,10 +26,22 @@ const Form = () => {
                     <div className={s.auth_item}>
                         <div className={s.auth_password}>
                             <label className={s.login_title} htmlFor="login_field">Password</label>
-                            <a className={s.label_link} href="">Forgot password?</a>
+                            <a className={s.label_link} href="/">Forgot password?</a>
                         </div>
-                        <input className={`${s.login_input} ${s.login_block}`} type="password" name="login" id="login_field" />
+                        <div className={s.password_input}>
+                            <input
+                                className={`${s.login_input} ${s.login_block}`}
+                                type={show ? 'text' : 'password'}
+                                name="login"
+                                id="login_field" />
+                            <img
+                                onClick={() => setShow(prev => !prev)} className={s.showPasswordImg}
+                                src={show ? СloseEye : OpenEye}
+                                alt="Back"
+                                title='Back to home' />
+                        </div>
                     </div>
+
                     <input value='Sing in' type="submit" className={s.btn_sent} />
                 </form>
             </div>
@@ -42,4 +57,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default LoginForm

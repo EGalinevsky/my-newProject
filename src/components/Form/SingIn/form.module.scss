@@ -1,4 +1,4 @@
-@import '../../styles/variable.scss';
+@import '../../../styles/variable.scss';
 
 .wrapper_form {
     width: 380px;
@@ -10,23 +10,26 @@
     align-items: center;
     box-sizing: border-box;
 
-    .form_header{
+    .form_header {
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: flex-start;
+
         & a {
             margin-right: 2.9rem;
+
             & img {
                 opacity: 0.7;
             }
         }
+
+        .form_title {
+            font-size: 38px;
+            font-weight: normal;
+        }
     }
 
-    .form_title {
-        font-size: 38px;
-        font-weight: normal;
-    }
 
     .auth_form_body {
         display: flex;
@@ -39,7 +42,13 @@
         background-color: #f1f1f129;
 
         .auth_item {
-            margin-top: 1.6rem;
+            margin-top: 1rem;
+
+            .showPasswordImg {
+                position: absolute;
+                right: 10px;
+                bottom: 5px;
+            }
         }
 
         .login_title {
@@ -47,7 +56,7 @@
         }
 
         .login_input {
-            display: block;
+            position: relative;
             border: 1px solid #474747;
             margin-top: .6rem;
             border-radius: 8px;
@@ -62,11 +71,14 @@
             width: 100%;
         }
 
+        .password_input {
+            position: relative;
+        }
+
         .auth_password {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
 
             .label_link {
                 text-decoration: none;
@@ -117,7 +129,8 @@
             font-size: 16px;
             text-decoration: none;
             color: #4542fa;
-            &:hover{
+
+            &:hover {
                 opacity: .8;
             }
         }

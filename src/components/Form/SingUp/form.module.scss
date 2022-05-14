@@ -1,0 +1,108 @@
+@import '../../../styles/variable.scss';
+
+.wrapper_form {
+    width: 380px;
+    min-height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    padding: 40px 0;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+
+    .form_header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+
+        & a {
+            margin-right: 2.6rem;
+
+            & img {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .wrapper_form_text{
+        font-size: 16px;
+        text-align: start;
+        margin: 10px 10px 20px;
+    }
+
+    .auth_form_body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0.1rem 0.1rem 0.6rem #47474727, -0.2rem -0.2rem 0.5rem #47474727;
+        border-radius: 15px;
+        padding: 35px 20px;
+        background-color: #f1f1f129;
+
+        .auth_item {
+            margin-top: 1rem;
+            .showPasswordImg {
+                position: absolute;
+                right: 10px;
+                bottom: 5px;
+            }
+        }
+
+        .login_title {
+            font-size: 18px;
+        }
+
+        .login_input {
+            position: relative;
+            border: 1px solid #474747;
+            margin-top: .6rem;
+            border-radius: 8px;
+            background: rgba(243, 243, 243, 0.299);
+            padding: 5px 12px;
+            font-size: 18px;
+            border: none;
+        }
+
+        .login_block {
+            display: block;
+            width: 100%;
+        }
+
+        .auth_password {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+
+            .label_link {
+                text-decoration: none;
+                font-size: 15px;
+                color: #4542fa;
+
+                ƒ &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+
+        .btn_sent {
+            width: 100%;
+            padding: 10px;
+            background-color: #5f785a;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            opacity: .8;
+            color: var(--color-white);
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: opacity .2s ease-in;
+
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+}

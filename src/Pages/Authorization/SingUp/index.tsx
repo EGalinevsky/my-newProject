@@ -1,8 +1,11 @@
 import React from 'react'
+import SingUpForm from '../../../components/Form/SingUp'
 
 const SingUp = () => {
   return (
-    <div>SingUp</div>
+    <>
+      <SingUpForm />
+    </>
   )
 }
 
