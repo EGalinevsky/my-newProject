@@ -5,9 +5,16 @@ import Back from './../../../assets/BackIcon.svg'
 import СloseEye from './../../../assets/СloseEye.svg'
 import OpenEye from './../../../assets/OpenEye.svg'
 
-const SingUpForm = () => {
+interface ISingUp {
+    handleRegistration: (email: string, password: string) => void;
+}
+
+const SingUpForm: React.FC<ISingUp> = ({ handleRegistration }) => {
     const [show, setShow] = useState<boolean>(false)
-    console.log(show)
+    const [email, setEmail] = useState<string>('')
+    // const [login, setLogin] = useState<string>()
+    const [password, setPassword] = useState<string>('')
+
     return (
         <div className={s.wrapper_form}>
             <div className={s.form_header}>
@@ -19,38 +26,46 @@ const SingUpForm = () => {
                 </h4>
             </div>
             <p className={s.wrapper_form_text}>
-                Let’s begin the adventure...
+                Let`s begin the adventure...
             </p>
             <div className={s.auth_form_body}>
-                <form>
                     <div>
                         <label className={s.login_title} htmlFor="login_field">Enter your email</label>
                         <input
                             className={`${s.login_input} ${s.login_block}`}
                             type="text"
                             name="email"
+                            value={email}
                             id="login_field"
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
                     <div className={s.auth_item}>
-                        <label className={s.login_title} htmlFor="login_field">Create a password</label>
+                        <label className={s.login_title} htmlFor="password_field">Create a password</label>
                         <div className={s.auth_password}>
                             <input
                                 className={`${s.login_input} ${s.login_block}`}
                                 type={show ? 'text' : 'password'}
                                 name="login"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 required
-                                id="login_field" />
+                                id="password_field" />
                             <img onClick={() => setShow(prev => !prev)} className={s.showPasswordImg} src={show ? СloseEye : OpenEye} alt="Back" title='Back to home' />
                         </div>
                     </div>
-                    <div className={s.auth_item}>
+                    {/* <div className={s.auth_item}>
                         <label className={s.login_title} htmlFor="login_field">Enter a username</label>
-                        <input className={`${s.login_input} ${s.login_block}`} type="text" name="login" id="login_field" />
-                    </div>
-                    <input value='Create account' type="submit" className={s.btn_sent} />
-                </form>
+                        <input
+                            className={`${s.login_input} ${s.login_block}`}
+                            type="text"
+                            name="login"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                            id="login_field" />
+                    </div> */}
+                    <input value='Create account' type="submit" className={s.btn_sent} onClick={() => handleRegistration(email as string, password)} />
             </div>
         </div>
     )

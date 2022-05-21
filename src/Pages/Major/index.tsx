@@ -11,6 +11,7 @@ interface IUser {
 
 
 export const Major = () => {
+
     const arrCards: IUser[] = [
         {
             id: useId(),
@@ -40,6 +41,9 @@ export const Major = () => {
                         text={card.title} />)}
                 </section>
             </main>
+            <div>
+
+            </div>
             <footer>
                 footer
             </footer>
