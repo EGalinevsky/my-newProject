@@ -1,39 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginForm from '../../../components/Form/SingIn'
-import { getAuth, signInWithEmailAndPassword, OAuthCredential } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, OAuthCredential, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { setUser } from '../../../store/slices/userSlice'
 import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { Loader } from '../../../components/Loader';
 
 const Login = () => {
+  const [loading, setLoading] = useState<boolean>(false)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-
-  const handleLogin = (email: string, password: string) => {
-    const auth = getAuth();
+  const auth = getAuth();
+  console.log(loading)
+  const handleLogin = async (email: string, password: string) => {
+    setLoading(true)
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password)
+      dispatch(setUser({
+        email: user.email,
+        id: user.uid,
+        token: (user as unknown as OAuthCredential).accessToken,
+      }))
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false)
+      navigate('/')
+    }
     console.log(auth);
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user );
-        console.log(sessionStorage.getItem('Auth Token'));
-        dispatch(setUser({
-          email: user.email,
-          id: user.uid,
-          token: (user as unknown as OAuthCredential).accessToken,
-        }))
-        navigate('/')
-      }
-      )
-      .catch(console.error
-      //   (error) => {
-      //   const errorCode = error.code;
-      //   const errorMessage = error.message;
-      // }
-      );
+
+    // .then(({ user }) => {
+    //   console.log(user);
+    //   console.log(sessionStorage.getItem('Auth Token'));
+
+    // }
+    // )
+    // .catch(console.error
+    //   //   (error) => {
+    //   //   const errorCode = error.code;
+    //   //   const errorMessage = error.message;
+    //   // }
+    // );
   }
   return (
     <>
-      <LoginForm handleLogin={handleLogin} />
+      {loading ? <Loader/> : <LoginForm handleLogin={handleLogin} /> }
+      
     </>
   )
 }
