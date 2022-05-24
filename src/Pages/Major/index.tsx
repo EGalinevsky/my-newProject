@@ -2,6 +2,8 @@ import React, { useId } from 'react'
 import Header from '../../components/Header/Header'
 import Card from './components/Card';
 import s from './styles/index.module.scss'
+import { ReactComponent as Map } from '../../assets/MapEarth.svg'
+import { Link } from 'react-router-dom';
 
 interface IUser {
     id: string;
@@ -45,7 +47,11 @@ export const Major = () => {
 
             </div>
             <footer>
-                footer
+                <div className={s.footer}>
+                    <Link to={'/map'}>
+                        <Map />
+                    </Link>
+                </div>
             </footer>
         </>
     )

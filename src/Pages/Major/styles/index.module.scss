@@ -1,9 +1,29 @@
-.sectionBody{
+.sectionBody {
   min-height: 88vh;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 2rem;
   padding: 1.5rem 3rem;
-}  
+}
+
+.footer {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s linear;
   
+  & svg:hover {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 150px;
+    height: 150px;
+  }
+  & a:hover svg path {
+    fill: #666666;
+  }
+}

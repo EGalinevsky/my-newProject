@@ -6,15 +6,24 @@
     rgba(144, 154, 164, 1) 52%,
     rgba(132, 186, 254, 1) 100%
   );
-  min-height: 100vh;
+  min-height: 100%;
   font-size: calc(10px + 2vmin);
+  padding-bottom: 10px;
   color: white;
 }
+/* hak for fill to svg later check */
 * {
   box-sizing: border-box;
+  transition: fill 0.1s linear;
 }
 
-p, h1, h2, h3, h4, a, input {
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+input {
   display: block;
   margin-block-start: 0px;
   margin-block-end: 0px;
@@ -28,7 +37,6 @@ p, h1, h2, h3, h4, a, input {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 
 .App-link {
   color: #61d9fa;

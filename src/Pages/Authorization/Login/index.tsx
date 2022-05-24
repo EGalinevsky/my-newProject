@@ -21,6 +21,7 @@ const Login = () => {
         id: user.uid,
         token: (user as unknown as OAuthCredential).accessToken,
       }))
+      localStorage.setItem('uid', JSON.stringify(user.uid))
     } catch (error) {
       console.log(error);
     } finally {
