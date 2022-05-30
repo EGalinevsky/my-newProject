@@ -1,3 +1,4 @@
+import { getAuth, signOut } from 'firebase/auth';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppDispatch } from '../../hooks/redux-hooks';
@@ -7,9 +8,9 @@ import s from './header.module.scss'
 
 const Header = () => {
     const dispatch = useAppDispatch();
-    const { isAuth, email } = useAuth()
-    console.log(isAuth);
-    console.log(email);
+    const auth = getAuth();
+    const { isAuth, email } = useAuth();
+    
     return (
         <header className={s.header}>
             <p className={s.logo}>
@@ -20,7 +21,10 @@ const Header = () => {
             </h1>
             {isAuth ?
                 <button
-                    onClick={() => dispatch(removeUser())}
+                    onClick={() =>{
+                        dispatch(removeUser());
+                        signOut(auth)
+                    } }
                 >
                     {email}
                 </button> : (

@@ -7,12 +7,13 @@ import OpenEye from './../../../assets/OpenEye.svg'
 
 interface ISingUp {
     handleRegistration: (email: string, password: string) => void;
+    setLogin: (e:string)=> void;
+    login: string;
 }
 
-const SingUpForm: React.FC<ISingUp> = ({ handleRegistration }) => {
+const SingUpForm: React.FC<ISingUp> = ({login, setLogin, handleRegistration }) => {
     const [show, setShow] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('')
-    // const [login, setLogin] = useState<string>()
     const [password, setPassword] = useState<string>('')
 
     return (
@@ -30,13 +31,14 @@ const SingUpForm: React.FC<ISingUp> = ({ handleRegistration }) => {
             </p>
             <div className={s.auth_form_body}>
                     <div>
-                        <label className={s.login_title} htmlFor="login_field">Enter your email</label>
+                        <label className={s.login_title} htmlFor="email_field">Enter your email</label>
                         <input
                             className={`${s.login_input} ${s.login_block}`}
                             type="text"
                             name="email"
                             value={email}
-                            id="login_field"
+                            autoComplete='false'
+                            id="email_field"
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
@@ -47,7 +49,7 @@ const SingUpForm: React.FC<ISingUp> = ({ handleRegistration }) => {
                             <input
                                 className={`${s.login_input} ${s.login_block}`}
                                 type={show ? 'text' : 'password'}
-                                name="login"
+                                name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
@@ -55,16 +57,17 @@ const SingUpForm: React.FC<ISingUp> = ({ handleRegistration }) => {
                             <img onClick={() => setShow(prev => !prev)} className={s.showPasswordImg} src={show ? СloseEye : OpenEye} alt="Back" title='Back to home' />
                         </div>
                     </div>
-                    {/* <div className={s.auth_item}>
+                    <div className={s.auth_item}>
                         <label className={s.login_title} htmlFor="login_field">Enter a username</label>
                         <input
                             className={`${s.login_input} ${s.login_block}`}
                             type="text"
+                            required
                             name="login"
                             value={login}
                             onChange={(e) => setLogin(e.target.value)}
                             id="login_field" />
-                    </div> */}
+                    </div>
                     <input value='Create account' type="submit" className={s.btn_sent} onClick={() => handleRegistration(email as string, password)} />
             </div>
         </div>

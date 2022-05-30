@@ -13,16 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .5s linear;
-  
-  & svg:hover {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    width: 150px;
-    height: 150px;
-  }
   & a:hover svg path {
     fill: #666666;
   }

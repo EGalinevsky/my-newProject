@@ -1,13 +1,64 @@
-.wrapperCard{
+.wrapperCard {
+    position: relative;
     display: grid;
-    height: 100%;   
-    text-decoration: none;
-    color: var(--color-white);
+    height: 100%;
+    grid-template-rows: 40px 1fr;
+    backdrop-filter: blur(10px);
+    grid-auto-flow: dense;
     padding: 1rem;
     box-shadow: 0.1rem 0.1rem 0.6rem #47474727, -0.2rem -0.2rem 0.5rem #47474727;
     transition: transform .1s linear;
+
+    .headerCard {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0.3;
+
+        .headerCardLike {
+            display: flex;
+            align-items: center;
+
+            span {
+                margin-left: 10px;
+                font-size: 16px;
+            }
+        }
+        >p {
+            font-size: 16px;
+        }
+
+    }
+
+    .descriptionCard {
+        display: grid;
+        text-decoration: none;
+        color: var(--color-white);
+        grid-template-rows: 1fr 200px;
+
+    }
+
+    .textCard {
+        margin-top: 20px;
+        display: flex;
+        font-size: 20px;
+    }
+
+    .titleCard {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &:hover {
+        transform: translate(2px, 5px);
+        box-shadow: 0.2rem 0.2rem 0.8rem #47474740, -0.2rem -0.2rem 0.8rem #47474740;
+
+        .headerCard {
+            opacity: 1;
+        }
+    }
 }
 
-.wrapperCard:hover{
-    transform: translate(5px, 20px);
-}
+// .wrapperCard:hover {
+
+// }
