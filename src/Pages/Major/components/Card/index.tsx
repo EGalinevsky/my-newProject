@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import s from '../../styles/card.module.scss'
 import { ReactComponent as LikeEmpty } from '../../../../assets/LikeEmpty.svg'
 import { ReactComponent as Like } from '../../../../assets/LIke.svg'
+import { useAuthContext } from '../../../../contexts/AuthContext';
 
 interface ICard {
     id: string;
@@ -11,10 +12,13 @@ interface ICard {
 }
 const Card: React.FC<ICard> = ({ name, text, id }) => {
     const [count, setCount] = useState<number>(0);
+    const { isUserAuth } = useAuthContext()
     const [isClick, setIsClick] = useState<boolean>(false);
     const dateToday = new Date();
     const [fakeMonth, day, year] = [dateToday.getMonth() + 1 + '', dateToday.getDate(), dateToday.getFullYear()];
     const month = fakeMonth.length >= 2 ? fakeMonth : `0${fakeMonth}`
+
+    console.log(isUserAuth)
     return (
         <div className={s.wrapperCard}>
             <div className={s.headerCard}>

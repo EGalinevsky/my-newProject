@@ -1,6 +1,7 @@
 import { getAuth, signOut } from 'firebase/auth';
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../../contexts/AuthContext';
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { useAuth } from '../../hooks/use-auth';
 import { removeUser } from '../../store/slices/userSlice';
@@ -8,25 +9,39 @@ import s from './header.module.scss'
 
 const Header = () => {
     const dispatch = useAppDispatch();
+    const [error, setError] = useState("")
+    const navigate = useNavigate()
     const auth = getAuth();
+    const { logOut, currentUser } = useAuthContext()
     const { isAuth, email } = useAuth();
-    
+    const handleLogout = async () => {
+        setError("")
+        try {
+            await logOut(auth)
+            navigate('/')
+        } catch {
+            setError("Failed to log out")
+        }
+    }
     return (
         <header className={s.header}>
             <p className={s.logo}>
                 <Link to="/" className={s.logoLink}>logo</Link>
             </p>
+            {error}
             <h1 className={s.title}>
                 Welcome to My Home
             </h1>
             {isAuth ?
                 <button
-                    onClick={() =>{
+                    className={s.navigation_linkup}
+                    onClick={() => {
                         dispatch(removeUser());
-                        signOut(auth)
-                    } }
+                        localStorage.removeItem('uid');
+                        handleLogout()
+                    }}
                 >
-                    {email}
+                    {currentUser.displayName}
                 </button> : (
                     <nav className={s.navigation}>
                         <Link to='/login' className={s.navigation_linkin}>Sing in</Link>

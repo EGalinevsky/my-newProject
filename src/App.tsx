@@ -1,42 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-
-
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import Routers from './components/Routers';
-import { getAuth, OAuthCredential, onAuthStateChanged } from 'firebase/auth';
-import { useAppDispatch } from './hooks/redux-hooks';
-import { setUser } from './store/slices/userSlice';
-import { Loader } from './components/Loader';
+import AuthProvider from './contexts/AuthContext';
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(false)
-  const auth = getAuth();
-  const dispatch = useAppDispatch()
-  const getUser = async () => {
-    onAuthStateChanged(auth, (data) => {
-      dispatch(setUser({
-        email: data?.email,
-        id: data?.uid,
-        token: (data as unknown as OAuthCredential | null)?.accessToken,
-      }))
-      setLoading(false)
-    })
-  }
-  useEffect(() => {
-    setLoading(true)
-    getUser()
-  }, [])
   return (
     <div className="App">
-      {loading ? <Loader /> : (
+      <AuthProvider>
         <Router>
           <Routers />
         </Router>
-      )}
-
+      </AuthProvider>
     </div>
   );
 }
