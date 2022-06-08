@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import s from '../../styles/card.module.scss'
 import { ReactComponent as LikeEmpty } from '../../../../assets/LikeEmpty.svg'
 import { ReactComponent as Like } from '../../../../assets/LIke.svg'
-import { useAuthContext } from '../../../../contexts/AuthContext';
+import { useAuthContext } from '../../../../helpers/contexts/AuthContext';
 
 interface ICard {
     id: string;
@@ -18,18 +18,20 @@ const Card: React.FC<ICard> = ({ name, text, id }) => {
     const [fakeMonth, day, year] = [dateToday.getMonth() + 1 + '', dateToday.getDate(), dateToday.getFullYear()];
     const month = fakeMonth.length >= 2 ? fakeMonth : `0${fakeMonth}`
 
-    console.log(isUserAuth)
     return (
         <div className={s.wrapperCard}>
             <div className={s.headerCard}>
                 <div className={s.headerCardLike}>
-                    {
-                        isClick ? <Like onClick={() => setCount(prev => prev + 1)} /> : <LikeEmpty onClick={() => {
-                            setCount(prev => prev + 1)
-                            setIsClick(true)
-                        }} />
-                    }
-                    <span>{count === 0 ? null : count}</span>
+                    {isUserAuth && <>
+                        {
+                            isClick ? <Like onClick={() => setCount(prev => prev + 1)} /> : <LikeEmpty onClick={() => {
+                                setCount(prev => prev + 1)
+                                setIsClick(true)
+                            }} />
+                        }
+                        <span>{count === 0 ? null : count}</span>
+                    </>}
+
                 </div>
                 <p>{day}.{month}.{year}</p>
             </div>

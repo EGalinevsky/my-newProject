@@ -11,8 +11,8 @@ import {
   signOut,
   OAuthCredential
 } from "firebase/auth";
+import { setUser } from '../../store/slices/userSlice';
 import { useAppDispatch } from '../hooks/redux-hooks';
-import { setUser } from '../store/slices/userSlice';
 
 const AuthContext = React.createContext({} as any)
 
@@ -49,14 +49,13 @@ function AuthProvider({ children }: IAuthProvider) {
         id: user?.uid,
         token: (user as unknown as OAuthCredential | null)?.accessToken,
       }))
-      console.log(user);
       setCurrentUser(user);
       setLoading(false);
     })
     return unSubsctiver
   }, []);
 
-  const isUserAuth = currentUser?.uid === (localStorage.getItem('uid') as string).replace(/"/g, '');
+  const isUserAuth = localStorage.getItem('uid') ? currentUser?.uid === (localStorage.getItem('uid') as string)?.replace(/"/g, '') : null;
 
   const value = {
     currentUser,

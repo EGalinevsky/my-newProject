@@ -13,7 +13,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        opacity: 0.3;
+        opacity: 0.6;
 
         .headerCardLike {
             display: flex;
@@ -42,18 +42,20 @@
         margin-top: 20px;
         display: flex;
         font-size: 20px;
+        opacity: 0.6;
     }
 
     .titleCard {
         display: flex;
         align-items: flex-end;
+        opacity: 0.8;
     }
 
     &:hover {
         transform: translate(2px, 5px);
         box-shadow: 0.2rem 0.2rem 0.8rem #47474740, -0.2rem -0.2rem 0.8rem #47474740;
 
-        .headerCard {
+        .headerCard , .textCard {
             opacity: 1;
         }
     }

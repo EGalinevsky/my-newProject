@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuthContext } from '../contexts/AuthContext'
+import { useAuthContext } from './contexts/AuthContext'
 import { Route, Navigate } from "react-router-dom"
 
 
