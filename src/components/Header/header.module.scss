@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 6rem;
+    position: relative;
 
     .logoLink {
         text-transform: uppercase;
@@ -14,8 +15,9 @@
 
     .title {
         font-size: 22px;
-        position: relative;
-        left: 35px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
     }
 
     .wrapper_navbar {

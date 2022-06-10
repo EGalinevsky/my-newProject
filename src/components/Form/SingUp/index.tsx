@@ -9,7 +9,7 @@ interface ISingUp {
     handleRegistration: (email: string, password: string) => void;
     setLogin: (e:string)=> void;
     login: string;
-}
+}   
 
 const SingUpForm: React.FC<ISingUp> = ({login, setLogin, handleRegistration }) => {
     const [show, setShow] = useState<boolean>(false)

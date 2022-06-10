@@ -7,7 +7,7 @@ import PrivateRoute from '../../helpers/PrivateRoute';
 import Login from '../../pages/Authorization/Login';
 import SingUp from '../../pages/Authorization/SingUp';
 import { Major } from '../../pages/Major';
-import { Map } from '../../pages/Map/Map';
+import { MapPage } from '../../pages/Map/MapPage';
 import Profile from '../../pages/Profile';
 
 export default function Routers() {
@@ -27,7 +27,7 @@ export default function Routers() {
                 path="/map"
                 element={
                     <PrivateRoute>
-                        <Map />
+                        <MapPage />
                     </PrivateRoute>
                 } />
         </Routes>
