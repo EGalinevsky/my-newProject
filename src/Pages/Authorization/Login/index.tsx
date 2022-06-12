@@ -21,6 +21,7 @@ const Login = () => {
     setLoading(true)
     try {
       const response = await singIn(email, password)
+      console.log(response)
       dispatch(setUser({
         email: response.user.email,
         id: response.user.uid,

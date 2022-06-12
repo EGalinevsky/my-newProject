@@ -1,0 +1,47 @@
+.profile {
+    min-height: 100vh;
+    background: #f6f6f6;
+}
+
+.wrapperContent {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 15% 20px;
+    max-height: 100%;
+    color: #000;
+    width: 100%;
+
+    .contentSidebar {
+        width: 35%;
+        min-height: 100%;
+        &>div {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            .contentBtn{
+                cursor: pointer;
+            font-size: 15px;
+
+                background: none;
+                border: 1px solid #000;
+                border-radius: 20px;
+                padding: 10px 0;
+                max-width: 200px;
+                min-width: 150px;
+                margin-bottom: 20px;
+
+                &:hover{
+                    background: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .content {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

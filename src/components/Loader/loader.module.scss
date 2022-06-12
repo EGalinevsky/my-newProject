@@ -11,7 +11,7 @@
     justify-content: space-between;
 
     & p {
-        font-size: 22px;
+        font-size: 20px;
         text-transform: uppercase;
         color: #8addf4;
         margin: auto;
@@ -19,8 +19,8 @@
 }
 
 .ball {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: #8addf4;
     animation: bounce .5s alternate infinite;

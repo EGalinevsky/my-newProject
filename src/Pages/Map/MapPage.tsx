@@ -1,5 +1,5 @@
 import React from 'react'
-import Autocomplete from '../../components/Map/Autocomplete/Autocomplete';
+// import Autocomplete from '../../components/Map/Autocomplete/Autocomplete';
 // import { Autocomplete } from '../../components/Map/Autocomplete';
 import Map from '../../components/Map/Map';
 import { useJsApiLoader } from '@react-google-maps/api';
@@ -18,7 +18,7 @@ export const MapPage = () => {
   return (
     <div>
       <div>
-        <Autocomplete isLoaded={isLoaded} />
+        {/* <Autocomplete isLoaded={isLoaded} /> */}
       </div>
       <Map center={center} isLoaded={isLoaded} />
     </div>

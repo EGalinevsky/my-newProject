@@ -13,16 +13,24 @@ import Profile from '../../pages/Profile';
 export default function Routers() {
     return (
         <Routes>
-            <Route path="/" element={<Major />} />
             <Route path="/login" element={<Login />} />
             <Route path="/singup" element={<SingUp />} />
+            <Route
+                path="/"
+                element={
+                    <PrivateRoute>
+                        <Major />
+                    </PrivateRoute>
+                }
+            />
             <Route
                 path="/profile"
                 element={
                     <PrivateRoute>
                         <Profile />
                     </PrivateRoute>
-                } />
+                }
+            />
             <Route
                 path="/map"
                 element={

@@ -1,0 +1,261 @@
+.wrapperSideBar {
+    position: relative;
+    background-color: #ffffff3b;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 10px 20px 15px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all .5s linear;
+
+    &.active {
+        display: flex;
+        width: 170px;
+        align-items: flex-start;
+        background-color: #ffffff48;
+        animation: active .2s linear;
+
+        @keyframes active {
+            from {width: 75px;}
+            to {width: 170px;}
+        }
+    }
+
+
+    .sideBarLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text_center {
+        input {
+            display: none;
+        }
+    }
+
+    .wrapperNavink {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .itemNavLink {
+            display: flex;
+            margin-top: 35px;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+
+            a {
+                margin-bottom: 10px;
+            }
+
+            .innerNavLink {
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                text-decoration: none;
+                color: #fff;
+                &:last-child {
+                    svg {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .arrow {
+        background: #fff;
+        height: 3px;
+        width: 30px;
+        margin: 0 auto;
+        position: relative;
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            content: "";
+            background: #fff;
+            position: absolute;
+            height: 3px;
+            width: 15px;
+        }
+
+        &:before {
+            right: -3px;
+            bottom: -4px;
+            transform: rotate(-45deg);
+        }
+
+        &:after {
+            right: -3px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+    }
+
+    .btnShowSidebar {
+        background: none;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        margin-bottom: 25px;
+    }
+
+    .animation1 {
+        &>.arrow {
+            &:before {
+                animation: animation-1-before-reverse 1s ease 0s 1 alternate both;
+            }
+
+            &:after {
+                animation: animation-1-after-reverse 1s ease 0s 1 alternate both;
+            }
+        }
+
+        &.active {
+            &>.arrow {
+                &:before {
+                    animation: animation-1-before 1s ease 0s 1 alternate both;
+                }
+
+                &:after {
+                    animation: animation-1-after 1s ease 0s 1 alternate both;
+                }
+            }
+        }
+    }
+
+    @keyframes animation-1-before {
+        0% {
+            right: -3px;
+            bottom: -4px;
+            transform: rotate(-45deg);
+        }
+
+        50% {
+            width: 3px;
+            border-radius: 50%;
+            bottom: -20px;
+            left: 15px;
+        }
+
+        100% {
+            left: -3px;
+            bottom: -4px;
+            transform: rotate(-135deg);
+            height: 3px;
+            width: 15px;
+            background: #fff;
+        }
+    }
+
+    @keyframes animation-1-after {
+        0% {
+            right: -3px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+
+        50% {
+            width: 3px;
+            border-radius: 50%;
+            top: -20px;
+            left: 15px;
+        }
+
+        100% {
+            left: -3px;
+            bottom: -4px;
+            transform: rotate(135deg);
+            height: 3px;
+            width: 15px;
+            background: #fff;
+        }
+    }
+
+
+
+    @keyframes animation-1-after-reverse {
+        0% {
+            left: -3px;
+            bottom: -4px;
+            transform: rotate(135deg);
+            height: 3px;
+            width: 15px;
+            background: #fff;
+        }
+
+        50% {
+            width: 3px;
+            border-radius: 50%;
+            top: -20px;
+            left: 15px;
+        }
+
+        100% {
+            right: -3px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+    }
+
+    @keyframes animation-1-before-reverse {
+        0% {
+            left: -3px;
+            bottom: -4px;
+            transform: rotate(-135deg);
+            height: 3px;
+            width: 15px;
+            background: #fff;
+        }
+
+        50% {
+            width: 3px;
+            border-radius: 50%;
+            bottom: -20px;
+            left: 15px;
+        }
+
+        100% {
+            right: -3px;
+            bottom: -4px;
+            transform: rotate(-45deg);
+        }
+    }
+
+    & .logOut {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapperProfile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 100px;
+        text-decoration: none;
+        background: #f6f6f6;
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+
+
+}

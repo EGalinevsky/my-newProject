@@ -9,15 +9,15 @@ interface ICard {
     id: string;
     name: string;
     text: string
+    img?: any
 }
-const Card: React.FC<ICard> = ({ name, text, id }) => {
+const Card: React.FC<ICard> = ({ name, text, id, img }) => {
     const [count, setCount] = useState<number>(0);
     const { isUserAuth } = useAuthContext()
     const [isClick, setIsClick] = useState<boolean>(false);
     const dateToday = new Date();
     const [fakeMonth, day, year] = [dateToday.getMonth() + 1 + '', dateToday.getDate(), dateToday.getFullYear()];
     const month = fakeMonth.length >= 2 ? fakeMonth : `0${fakeMonth}`
-
     return (
         <div className={s.wrapperCard}>
             <div className={s.headerCard}>
@@ -35,6 +35,7 @@ const Card: React.FC<ICard> = ({ name, text, id }) => {
                 </div>
                 <p>{day}.{month}.{year}</p>
             </div>
+            <img src={img} alt={name} />
             <Link to={`/${name.toLocaleLowerCase().replace(/ /g, '')}`} className={s.descriptionCard}>
 
                 <p className={s.textCard}>{text}</p>

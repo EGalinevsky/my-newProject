@@ -1,0 +1,74 @@
+.wrapperDiscription {
+    display: flex;
+    height: 190px;
+    padding: 0 10%;
+    background: #ffffff;
+    color: #000;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    .wrapperAvatar {
+
+        min-width: 100px;
+        position: relative;
+
+        .avatar {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -70px;
+            left: 20%;
+            font-size: 60px;
+            font-weight: 600;
+            color: rgb(57, 57, 57);
+            height: 150px;
+            width: 150px;
+            border-radius: 100%;
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            text-transform: uppercase;
+            background-color: rgb(223, 196, 177);
+        }
+    }
+
+    .profileInner {
+        padding-left: 100px;
+        display: flex;
+
+        .discriptionInner {
+            .profileTitle {
+                font-size: 30px;
+                margin: 20px 0;
+            }
+
+            .profileText {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            .ProfileSocial {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 18px;
+
+
+                a {
+                    margin-left: 20px;
+                    font-size: 16px;
+                    text-decoration: none;
+                    color: rgb(110, 110, 110);
+                }
+            }
+
+
+        }
+
+        .moreIcon {
+            margin-top: 20px;
+            margin-left: 50px;
+            & svg {
+                cursor: pointer;
+            }
+        }
+    }
+}

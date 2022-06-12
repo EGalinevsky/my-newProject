@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap } from '@react-google-maps/api';
 import s from './style/index.module.scss'
 import { defaultTheme } from './Theme';
 
@@ -27,10 +27,10 @@ const defaultOptions = {
     styles: defaultTheme
 }
 
-const API_KEY = process.env.REACT_APP_API_MAPS_GOOGLE
+// const API_KEY = process.env.REACT_APP_API_MAPS_GOOGLE
 
 const Map = ({ center, isLoaded }: IMap) => {
-    const [map, setMap] = React.useState(null)
+    // const [map, setMap] = React.useState(null)
     const mapRef = useRef(undefined)
 
 

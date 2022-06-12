@@ -8,8 +8,6 @@
   );
   min-height: 100vh;
   max-height: 100%;
-  font-size: calc(10px + 2vmin);
-  padding-bottom: 10px;
   color: white;
 }
 /* hak for fill to svg later check */

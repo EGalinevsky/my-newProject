@@ -4,10 +4,12 @@
     height: 100%;
     grid-template-rows: 40px 1fr;
     backdrop-filter: blur(10px);
-    grid-auto-flow: dense;
     padding: 1rem;
+    background: rgb(45, 45, 45);
     box-shadow: 0.1rem 0.1rem 0.6rem #47474727, -0.2rem -0.2rem 0.5rem #47474727;
     transition: transform .1s linear;
+    overflow: hidden;
+    border-radius: 10px;
 
     .headerCard {
         display: flex;
@@ -24,17 +26,27 @@
                 font-size: 16px;
             }
         }
+
         >p {
             font-size: 16px;
         }
 
     }
 
+    & img {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
     .descriptionCard {
         display: grid;
         text-decoration: none;
         color: var(--color-white);
-        grid-template-rows: 1fr 200px;
+        grid-template-rows: 1fr 50px;
 
     }
 
@@ -55,12 +67,13 @@
         transform: translate(2px, 5px);
         box-shadow: 0.2rem 0.2rem 0.8rem #47474740, -0.2rem -0.2rem 0.8rem #47474740;
 
-        .headerCard , .textCard {
+        .headerCard,
+        .textCard {
             opacity: 1;
+        }
+
+        img {
+            opacity: .5;
         }
     }
 }
-
-// .wrapperCard:hover {
-
-// }

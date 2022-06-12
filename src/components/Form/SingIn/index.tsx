@@ -25,39 +25,39 @@ const LoginForm: React.FC<IloginForm> = ({ handleLogin }) => {
                 </h2>
             </div>
             <div className={s.auth_form_body}>
-                    <div>
-                        <label className={s.login_title} htmlFor="login_field">Username or email address</label>
+                <div>
+                    <label className={s.login_title} htmlFor="login_field">Username or email address</label>
+                    <input
+                        className={`${s.login_input} ${s.login_block}`}
+                        type="text"
+                        name="login"
+                        id="login_field"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className={s.auth_item}>
+                    <div className={s.auth_password}>
+                        <label className={s.login_title} htmlFor="password_field">Password</label>
+                        <a className={s.label_link} href="/">Forgot password?</a>
+                    </div>
+                    <div className={s.password_input}>
                         <input
                             className={`${s.login_input} ${s.login_block}`}
-                            type="text"
+                            type={show ? 'text' : 'password'}
                             name="login"
-                            id="login_field"
-                            value={email}
-                            onChange={(e)=> setEmail(e.target.value)}
-                        />
+                            id="password_field"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
+                        <img
+                            onClick={() => setShow(prev => !prev)} className={s.showPasswordImg}
+                            src={show ? СloseEye : OpenEye}
+                            alt="Back"
+                            title='Back to home' />
                     </div>
-                    <div className={s.auth_item}>
-                        <div className={s.auth_password}>
-                            <label className={s.login_title} htmlFor="password_field">Password</label>
-                            <a className={s.label_link} href="/">Forgot password?</a>
-                        </div>
-                        <div className={s.password_input}>
-                            <input
-                                className={`${s.login_input} ${s.login_block}`}
-                                type={show ? 'text' : 'password'}
-                                name="login"
-                                id="password_field"
-                                value={password}
-                                onChange={(e)=> setPassword(e.target.value)} />
-                            <img
-                                onClick={() => setShow(prev => !prev)} className={s.showPasswordImg}
-                                src={show ? СloseEye : OpenEye}
-                                alt="Back"
-                                title='Back to home' />
-                        </div>
-                    </div>
+                </div>
 
-                    <input value='Sing in' type="submit" className={s.btn_sent} onClick={() => handleLogin(email, password)} />
+                <input value='Sing in' type="submit" className={s.btn_sent} onClick={() => handleLogin(email, password)} />
             </div>
             <div className={s.auth_form_footer}>
                 <p>
