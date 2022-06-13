@@ -8,7 +8,6 @@ import SideBar from '../../components/SideBar';
 import { getAuth } from 'firebase/auth';
 import { useAppDispatch } from '../../helpers/hooks/redux-hooks';
 import { useAuthContext } from '../../helpers/contexts/AuthContext';
-import { useAuth } from '../../helpers/hooks/use-auth';
 import { removeUser } from '../../store/slices/userSlice';
 import culture from '../../assets/img/culture.png'
 import sport from '../../assets/img/sport.jpg'
