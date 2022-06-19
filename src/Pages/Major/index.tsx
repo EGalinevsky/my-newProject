@@ -17,7 +17,7 @@ import { Loader } from '../../components/Loader';
 interface IUser {
     id: string;
     name: string;
-    title: string
+    title: string;
     img?: any
 }
 
