@@ -6,7 +6,7 @@ const Content = () => {
   return (
     <div className={s.wrapperContent}>
       <div className={s.contentSidebar}>
-        Phone: +3756452668
+        Phone: +37564526683
         <div >
           <button className={s.contentBtn}>Message</button>
           <button className={s.contentBtn}>Follow</button>
