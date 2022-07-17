@@ -25,7 +25,7 @@ interface IUser {
 export const Major = () => {
     const dispatch = useAppDispatch();
     const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState("")
+    const [error, setError] = useState<string>("")
     const navigate = useNavigate()
     const auth = getAuth();
     const { logOut, currentUser } = useAuthContext()

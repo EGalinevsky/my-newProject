@@ -10,8 +10,8 @@ import SocialMedia from './SocialMedia'
 
 const Discription = () => {
   const { currentUser } = useAuthContext()
-  const userName = currentUser?.displayName
-  const name = userName && `${userName?.slice(0, 1).toUpperCase()}.${userName?.slice(1, 2).toUpperCase()}.`
+  const userName: string = currentUser?.displayName
+  const name: string = userName && `${userName?.slice(0, 1).toUpperCase()}.${userName?.slice(1, 2).toUpperCase()}.`
   const socialAccount = [
     {
       name: 'Facabook',
@@ -27,7 +27,7 @@ const Discription = () => {
       path: '/'
     },
   ]
-  const address = 'Novogrudok, Belarus'
+  const address = 'Novogrudok, Belarus';
   return (
     <section className={s.wrapperDiscription}>
       <div className={s.wrapperAvatar}>
